@@ -1,5 +1,7 @@
 # Algoritmos 1 Fiuba
 
+Repositorio de trabajos prácticos de la materia Algoritmos y Programacion I (FIUBA), correspondiente a la cursada 2020.
+
 Materia introductoria a la programacion/algoritmia, algunos de los temas presentado a lo largo del cuatrimestre fueron:
 
  - Funciones
@@ -19,3 +21,7 @@ Materia introductoria a la programacion/algoritmia, algunos de los temas present
 El lenguaje utilizado a lo largo de curso fue en su mayoria python con algo de C
 
 Se realizaron 3 trabajos practicos
+
+- [TP1](https://github.com/Fanusaez/Algoritmos1-Fiuba/tree/main/TP1)
+- [TP2](https://github.com/Fanusaez/Algoritmos1-Fiuba/tree/main/TP2)
+- [TP3](https://github.com/Fanusaez/Algoritmos1-Fiuba/tree/main/TP3)
