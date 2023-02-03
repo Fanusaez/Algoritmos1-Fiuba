@@ -20,7 +20,7 @@ Materia introductoria a la programacion/algoritmia, algunos de los temas present
  
 El lenguaje utilizado a lo largo de curso fue en su mayoria python con algo de C
 
-Se realizaron 3 trabajos practicos
+### Trabajos practicos realizados
 
 - [TP1](https://github.com/Fanusaez/Algoritmos1-Fiuba/tree/main/TP1)
 - [TP2](https://github.com/Fanusaez/Algoritmos1-Fiuba/tree/main/TP2)
