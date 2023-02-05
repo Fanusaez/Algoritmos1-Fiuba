@@ -1,4 +1,4 @@
-TP1 - Tetris 
+# TP1 - Tetris 
 
 [Enunciado TP1 - Tetris](https://github.com/Fanusaez/Algoritmos1-Fiuba/files/10609959/TP1_-_Tetris.pdf)
 
