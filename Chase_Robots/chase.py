@@ -273,7 +273,7 @@ class EstadoJuego:
 def definir_niveles():
     """ Escribe los niveles deseados en 'niveles.txt' """
 
-    with open("niveles.txt", "w") as f:
+    with open("Chase_Robots/niveles.txt", "w") as f:
         nivel = 1
         robots = 2
         escombros = 4
@@ -287,7 +287,7 @@ def definir_niveles():
 def diccionario_niveles():
     """ Crea un diccionario con los niveles guardados en 'niveles.txt'  y lo devuelve"""
 
-    with open("niveles.txt", "r+") as f:
+    with open("Chase_Robots/niveles.txt", "r+") as f:
         dic_niveles = {}
         csv_reader = csv.reader(f, delimiter = ",")
         for linea in csv_reader:

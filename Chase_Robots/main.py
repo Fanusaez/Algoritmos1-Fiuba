@@ -21,11 +21,11 @@ def dibujar_grilla(juego):
     for y in range(chase.ALTO_JUEGO):
         for x in range(chase.ANCHO_JUEGO):
             if juego[y][x] == chase.ROBOTS:
-                gamelib.draw_image('robot.gif', x * LADO_CUADRADO, y * LADO_CUADRADO)
+                gamelib.draw_image('Chase_Robots/robot.gif', x * LADO_CUADRADO, y * LADO_CUADRADO)
             elif juego[y][x] == chase.ESCOMBROS:
-                gamelib.draw_image('escombros.gif', x * LADO_CUADRADO, y * LADO_CUADRADO)
+                gamelib.draw_image('Chase_Robots/escombros.gif', x * LADO_CUADRADO, y * LADO_CUADRADO)
             elif juego[y][x] == chase.JUGADOR:
-                gamelib.draw_image('jugador.gif', x * LADO_CUADRADO, y * LADO_CUADRADO)
+                gamelib.draw_image('Chase_Robots/jugador.gif', x * LADO_CUADRADO, y * LADO_CUADRADO)
     
 
 def avanzar(partida, accion):
