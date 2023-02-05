@@ -1,8 +1,0 @@
-w = ROTAR
-a = IZQUIERDA
-d = DERECHA
-s = DESCENDER
-g = GUARDAR
-c = CARGAR
-
-Esc = SALIR

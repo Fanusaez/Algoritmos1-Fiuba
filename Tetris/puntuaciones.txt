@@ -1,0 +1,10 @@
+Fernando, 4010
+Esteban, 1430
+Hector, 1240
+Julian, 1110
+Francisco, 930
+Juan, 670
+Giovanni, 480
+Gianluca, 230
+Mauricio, 200
+Javier, 150None,600

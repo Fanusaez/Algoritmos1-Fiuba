@@ -29,23 +29,27 @@ def dibujar_pieza(juego):
 def dibujar_siguiente(pieza_siguiente):
     """ Dibuja la siguiente pieza que se mostrara fuera del tablero """
 
-    pieza_siguiente = tetris.trasladar_pieza(pieza_siguiente, 12, 2)
+    gamelib.draw_text("Siguiente pieza", 420, 50, size = 20, fill = "gold")
+    pieza_siguiente = tetris.trasladar_pieza(pieza_siguiente, 12, 4)
     for posicion in pieza_siguiente:
         gamelib.draw_rectangle(posicion[0] * 30 + 30, posicion[1] * 30 + 30, posicion[0] * 30, posicion[1] * 30, outline='white', fill='orange')
 
 def dibujar_puntaje(puntaje):   
     """ Dibuja el puntaje en la pantalla """
+    gamelib.draw_text("Score",400, 300, size = 30, fill = 'gold')
+    gamelib.draw_text(puntaje, 400, 350, size=30, fill="white")
 
     
-def puntajes_en_pantalla():
+def puntajes_en_pantalla(puntaje):
     "Dibuja los diez mejores puntjaes del juego en pantalla"
-
-    gamelib.draw_text("Mejores Puntajes:",400, 250, size = 30, fill = 'gold')
-    with open("puntuaciones.txt") as f:
+    gamelib.draw_rectangle(0, 0, 550, 550, fill = 'black')
+    gamelib.draw_text(f"Tu Puntaje: {puntaje}", 250, 100, size = 25, fill="gold")
+    gamelib.draw_text("Mejores Puntajes:",250, 250, size = 30, fill = 'gold')
+    with open("Tetris/puntuaciones.txt") as f:
         csv_reader = csv.reader(f)
         alto = 0
         for linea in csv_reader:
-            gamelib.draw_text(f"{linea[0]},{linea[1]}",390, 300 + alto, size = 15, fill = 'gold')
+            gamelib.draw_text(f"{linea[0]},{linea[1]}",250, 300 + alto, size = 15, fill = 'gold')
             alto += 20
 
 ######Puntajes########
@@ -54,7 +58,7 @@ def creador_diccionario():
     """Crea diccionario con los 10 mejores puntajes del juego"""
 
     dic_puntajes = {}
-    with open("puntuaciones.txt") as f:
+    with open("Tetris/puntuaciones.txt") as f:
         csv_reader = csv.reader(f, delimiter = ",")
         for linea in csv_reader:
             dic_puntajes[linea[0]] = int(linea[1])
@@ -71,7 +75,7 @@ def creador_diccionario():
 def puntajes_maximos(puntaje):
     """ Escribe los puntajes en puntuaciones.txt """
     
-    with open('puntuaciones.txt', 'a') as puntuaciones:
+    with open('Tetris/puntuaciones.txt', 'a') as puntuaciones:
         nombre = gamelib.input("Ingrese nombre jugador")
         puntuaciones.write(f"{nombre},{puntaje}\n")
     creador_diccionario()
@@ -80,7 +84,7 @@ def puntajes_maximos(puntaje):
 def ordenar_puntajes(dic_puntajes):
     """Ordena los puntajes de mayor a menor en putuaciones.txt"""
 
-    with open("puntuaciones.txt","w") as f:
+    with open("Tetris/puntuaciones.txt","w") as f:
         while len(dic_puntajes) != 0:
             mayor_nombre, mayor_valor = None, 0
             for llave, valor in dic_puntajes.items():
@@ -94,7 +98,7 @@ def ordenar_puntajes(dic_puntajes):
 
 def diccionario_acciones():
     """ Crea un diccionario de acciones mediante el archivo 'teclas.txt' """
-    with open('teclas.txt') as teclas:
+    with open('Tetris/teclas.txt') as teclas:
         reader = csv.reader(teclas, delimiter = "=")
         diccionario_acciones = {}
         for fila in reader:           
@@ -105,19 +109,24 @@ def diccionario_acciones():
 
 DICCIONARIO_ACCIONES = diccionario_acciones()
 
+
 def tecla_presionada(tecla, juego, puntaje):
     
     if DICCIONARIO_ACCIONES[tecla] == 'DERECHA':  
         tetris.mover(juego, tetris.DERECHA)
+
     elif DICCIONARIO_ACCIONES[tecla] == 'IZQUIERDA':
         tetris.mover(juego, tetris.IZQUIERDA)
+
     elif DICCIONARIO_ACCIONES[tecla] == 'DESCENDER':
         tetris.avanzar(juego,tetris.generar_pieza(None))
 
     elif DICCIONARIO_ACCIONES[tecla] == 'ROTAR':
         tetris.rotar(juego)
+
     elif DICCIONARIO_ACCIONES[tecla] == 'GUARDAR':
         tetris.guardar_partida(juego,puntaje)
+
 
 def main():
     # Inicializar el estado del juego
@@ -130,7 +139,7 @@ def main():
     while gamelib.loop(fps=20):
         #Si el juego termino,que llame a puntajes_maximos
         if tetris.terminado(juego):
-            puntajes_en_pantalla()  
+            puntajes_en_pantalla(puntaje)  
             puntajes_maximos(puntaje)
             return
         # Dibujar la pantalla
@@ -155,7 +164,7 @@ def main():
                     puntaje += 10
                 if tecla == "c":
                     juego, puntaje = tetris.cargar_partida()
-                
+
               # Actualizar el juego, según la tecla presionada
                 tecla_presionada(tecla,juego, puntaje)
         

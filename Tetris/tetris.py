@@ -11,7 +11,7 @@ import csv
 def tupla_de_piezas():
     "crea una tupla de tuplas de piezas obtenidas a partir de piezas.txt"
 
-    with open("piezas.txt") as rotaciones: 
+    with open("Tetris/piezas.txt") as rotaciones: 
         reader = csv.reader(rotaciones, delimiter = "#")
         lista_piezas = []
         piezas = []
@@ -296,7 +296,7 @@ def rotar(juego):
 def diccionario_rotaciones():
     """ crea un diccionario con las rotaciones del juego"""
 
-    with open("piezas.txt") as rotaciones: #aca tengo que poner la variable rotaciones
+    with open("Tetris/piezas.txt") as rotaciones: #aca tengo que poner la variable rotaciones
         reader = csv.reader(rotaciones, delimiter = "#")
         dic_posiciones = {}
         for fila in reader:
@@ -355,7 +355,7 @@ def buscar_rotacion(pieza_en_origen):
 def guardar_partida(juego, puntaje):
     "Guarda la partida en 'juego_guardados.txt' "
 
-    with open("juegos_guardados.txt", "w") as f:
+    with open("Tetris/juegos_guardados.txt", "w") as f:
         for i in range(len(juego)):
             f.write(f"{juego[i]}\n")
         f.write(str(puntaje))
@@ -363,7 +363,7 @@ def guardar_partida(juego, puntaje):
 def cargar_partida():
     "Carga partida anteriormente guardada"
 
-    with open("juegos_guardados.txt") as f:
+    with open("Tetris/juegos_guardados.txt") as f:
         juego = []
         juego_aux = []
         lista_aux = []
